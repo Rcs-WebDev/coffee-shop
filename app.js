@@ -187,7 +187,7 @@ function updateUserNavUI() {
     const navLinks = document.querySelector(".nav-links");
     if (currentUser) {
         navProfile.style.display = "flex";
-        if (burgerBtn) burgerBtn.style.display = "flex";
+        if (burgerBtn) burgerBtn.style.display = "";
         document.getElementById("nav-username").innerText = currentUser.username;
         document.getElementById("nav-wallet-balance").innerText = formatRupiah(currentUser.balance || 0);
         updateCartBadge();
