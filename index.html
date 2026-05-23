@@ -48,6 +48,12 @@
                     </button>
                 </li>
                 <li>
+                    <button id="nav-btn-about" data-target-view="about">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                        About
+                    </button>
+                </li>
+                <li>
                     <button id="nav-btn-history" data-target-view="history">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         Riwayat
@@ -250,6 +256,17 @@
                         </div>
                         <span class="points-counter" id="dash-points">0</span>
                     </div>
+                    <!-- Footer Home -->
+                    <footer class="dashboard-footer glass" style="margin-top: 48px; padding: 24px; text-align: center; border-color: rgba(181,131,76,0.15); width: 100%; grid-column: 1 / -1;">
+                        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;"><strong>Kantor Pusat Cafe Ray</strong></p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Jl. Senopati Raya No. 89, Kebayoran Baru, Jakarta Selatan, 12190</p>
+                        <p style="font-size: 0.9rem; color: var(--accent-gold);">
+                            <a href="https://wa.me/6281234567890" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.37 5.378.005 12.012.005c3.218.001 6.242 1.258 8.517 3.535 2.275 2.277 3.528 5.306 3.528 8.524 0 6.641-5.378 12.007-12.013 12.007-1.997 0-3.955-.496-5.717-1.442L0 24zm6.59-4.846c1.6.95 3.197 1.45 4.817 1.451 5.385 0 9.766-4.382 9.77-9.77.002-2.61-1.014-5.064-2.861-6.914C16.527 2.07 14.084 1.05 11.48 1.05c-5.39 0-9.773 4.382-9.777 9.773-.001 1.77.476 3.493 1.385 5.016L2.093 21.84l6.185-1.614c.002.002.003.002.004.002H8.28zm8.683-5.26c-.282-.142-1.67-.824-1.929-.918-.258-.094-.447-.142-.636.142-.189.284-.731.918-.897 1.107-.166.19-.33.213-.612.072-.282-.142-1.192-.44-2.272-1.402-.84-.75-1.407-1.675-1.572-1.958-.166-.284-.018-.437.123-.578c.127-.127.282-.33.424-.497.142-.165.189-.283.283-.472.094-.19.047-.354-.024-.497-.071-.142-.636-1.53-.87-2.097-.229-.553-.457-.478-.627-.487-.163-.008-.35-.01-.537-.01-.187 0-.49.07-.747.354-.258.283-.984.962-.984 2.348 0 1.387 1.009 2.725 1.15 2.914.141.19 1.986 3.033 4.812 4.251.672.29 1.197.463 1.606.593.676.215 1.291.185 1.777.112.542-.082 1.67-.682 1.905-1.34.234-.658.234-1.223.164-1.341-.07-.12-.258-.19-.54-.332z"/></svg>
+                                Hubungi WhatsApp Customer Care (0812-3456-7890)
+                            </a>
+                        </p>
+                    </footer>
                 </div>
 
             </div>
@@ -481,6 +498,83 @@
             <div class="featured-grid" id="promos-list-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;">
                 <!-- Populated by app.js -->
             </div>
+        </section>
+
+        <!-- ==========================================
+           VIEW 4.7: ABOUT CAFE RAY
+           ========================================== -->
+        <section class="view-section" id="about-view">
+            <div class="section-header">
+                <h2>Tentang Cafe Ray</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Menghubungkan rasa, cerita, dan dedikasi kopi terbaik.</p>
+            </div>
+
+            <!-- Brand Manifesto -->
+            <div class="glass about-manifesto-box" style="margin-bottom: 40px;">
+                <p>
+                    Bagi kami, secangkir kopi bukan sekadar rutinitas pagi. Ia adalah jembatan obrolan, pemantik ide, dan teman setia kala sunyi. Cafe Ray lahir dari keyakinan bahwa kopi terbaik adalah kopi yang disajikan dengan rasa hormat—mulai dari petani lokal yang merawat setiap buah ceri dengan cinta, hingga ketelitian barista kami yang meraciknya dengan presisi. Visi kami adalah menghadirkan kehangatan, inspirasi, dan keaslian rasa kopi nusantara kepada dunia, satu cangkir demi satu cangkir.
+                </p>
+            </div>
+
+            <!-- Company Milestones (Timeline) -->
+            <h3 class="checkout-section-title" style="margin-bottom: 24px;">Perjalanan Kami (Milestones)</h3>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="glass timeline-content">
+                        <span class="timeline-year">2021</span>
+                        <h4 class="timeline-title">Awal Mula & Mimpi</h4>
+                        <p class="timeline-desc">Cafe Ray pertama kali didirikan di garasi kecil Jakarta Selatan dengan mimpi sederhana: memperkenalkan kopi specialty nusantara berkualitas tinggi kepada khalayak ramai.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="glass timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h4 class="timeline-title">Ekspansi Outlet & Komunitas</h4>
+                        <p class="timeline-desc">Membuka 5 outlet baru di area Jabodetabek dan meluncurkan program akademi barista gratis bagi pemuda lokal yang berminat belajar industri kopi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="glass timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h4 class="timeline-title">Transformasi Digital & Wallet</h4>
+                        <p class="timeline-desc">Meluncurkan sistem pembayaran digital Ray Wallet terintegrasi untuk memberikan kemudahan transaksi serta program loyalitas khusus pelanggan setia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="glass timeline-content">
+                        <span class="timeline-year">2026</span>
+                        <h4 class="timeline-title">Komitmen Keberlanjutan</h4>
+                        <p class="timeline-desc">Cafe Ray beralih menggunakan 100% kemasan ramah lingkungan dan menjalin kemitraan perdagangan langsung (Direct Trade) dengan 50+ kelompok petani kopi lokal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Locations -->
+            <h3 class="checkout-section-title" style="margin-bottom: 24px;">Lokasi Kantor Kami</h3>
+            <div class="offices-grid">
+                <div class="glass" style="padding: 24px;">
+                    <h4 style="color: var(--accent-gold); font-size: 1.15rem; margin-bottom: 12px; font-family: var(--font-heading);">Jakarta Headquarters (HQ)</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px;">Pusat administrasi, roastery utama, dan lab pelatihan barista kami.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Jl. Senopati Raya No. 89, Kebayoran Baru, Jakarta Selatan, 12190</p>
+                </div>
+                <div class="glass" style="padding: 24px;">
+                    <h4 style="color: var(--accent-gold); font-size: 1.15rem; margin-bottom: 12px; font-family: var(--font-heading);">Bandung Sourcing Lab</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px;">Tempat riset rasa, QC biji kopi mentah (green beans), dan pengembangan menu baru.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Jl. Dago Raya No. 104, Coblong, Kota Bandung, 40135</p>
+                </div>
+            </div>
+
+            <!-- Footer About -->
+            <footer class="dashboard-footer glass" style="margin-top: 48px; padding: 24px; text-align: center; border-color: rgba(181,131,76,0.15);">
+                <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;"><strong>Kantor Pusat Cafe Ray</strong></p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Jl. Senopati Raya No. 89, Kebayoran Baru, Jakarta Selatan, 12190</p>
+                <p style="font-size: 0.9rem; color: var(--accent-gold);">
+                    <a href="https://wa.me/6281234567890" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.37 5.378.005 12.012.005c3.218.001 6.242 1.258 8.517 3.535 2.275 2.277 3.528 5.306 3.528 8.524 0 6.641-5.378 12.007-12.013 12.007-1.997 0-3.955-.496-5.717-1.442L0 24zm6.59-4.846c1.6.95 3.197 1.45 4.817 1.451 5.385 0 9.766-4.382 9.77-9.77.002-2.61-1.014-5.064-2.861-6.914C16.527 2.07 14.084 1.05 11.48 1.05c-5.39 0-9.773 4.382-9.777 9.773-.001 1.77.476 3.493 1.385 5.016L2.093 21.84l6.185-1.614c.002.002.003.002.004.002H8.28zm8.683-5.26c-.282-.142-1.67-.824-1.929-.918-.258-.094-.447-.142-.636.142-.189.284-.731.918-.897 1.107-.166.19-.33.213-.612.072-.282-.142-1.192-.44-2.272-1.402-.84-.75-1.407-1.675-1.572-1.958-.166-.284-.018-.437.123-.578c.127-.127.282-.33.424-.497.142-.165.189-.283.283-.472.094-.19.047-.354-.024-.497-.071-.142-.636-1.53-.87-2.097-.229-.553-.457-.478-.627-.487-.163-.008-.35-.01-.537-.01-.187 0-.49.07-.747.354-.258.283-.984.962-.984 2.348 0 1.387 1.009 2.725 1.15 2.914.141.19 1.986 3.033 4.812 4.251.672.29 1.197.463 1.606.593.676.215 1.291.185 1.777.112.542-.082 1.67-.682 1.905-1.34.234-.658.234-1.223.164-1.341-.07-.12-.258-.19-.54-.332z"/></svg>
+                        Hubungi WhatsApp Customer Care (0812-3456-7890)
+                    </a>
+                </p>
+            </footer>
         </section>
 
         <!-- ==========================================
