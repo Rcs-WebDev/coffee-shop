@@ -183,13 +183,29 @@ function initApp() {
 // User Navigation / UI Update
 function updateUserNavUI() {
     const navProfile = document.getElementById("nav-profile");
+    const burgerBtn = document.getElementById("burger-btn");
+    const navLinks = document.querySelector(".nav-links");
     if (currentUser) {
         navProfile.style.display = "flex";
+        if (burgerBtn) burgerBtn.style.display = "flex";
         document.getElementById("nav-username").innerText = currentUser.username;
         document.getElementById("nav-wallet-balance").innerText = formatRupiah(currentUser.balance || 0);
         updateCartBadge();
+
+        // Update mobile user card info
+        const mobUsername = document.getElementById("mobile-nav-username");
+        if (mobUsername) mobUsername.innerText = currentUser.username;
+        const mobWallet = document.getElementById("mobile-nav-wallet-balance");
+        if (mobWallet) mobWallet.innerText = formatRupiah(currentUser.balance || 0);
     } else {
         navProfile.style.display = "none";
+        if (burgerBtn) {
+            burgerBtn.style.display = "none";
+            burgerBtn.classList.remove("active");
+        }
+        if (navLinks) {
+            navLinks.classList.remove("active");
+        }
     }
 }
 
@@ -207,10 +223,39 @@ function setupEventHandlers() {
                 showView(target);
                 // Close cart drawer if switching view
                 closeCartDrawer();
+                
+                // Close mobile navigation menu
+                const burgerBtn = document.getElementById("burger-btn");
+                const navLinks = document.querySelector(".nav-links");
+                if (burgerBtn) burgerBtn.classList.remove("active");
+                if (navLinks) navLinks.classList.remove("active");
             } else {
                 showAlert("error", "Silakan login terlebih dahulu untuk mengakses menu ini.", "auth");
             }
         });
+    });
+
+    // Burger Menu Toggle
+    const burgerBtn = document.getElementById("burger-btn");
+    const navLinks = document.querySelector(".nav-links");
+    if (burgerBtn && navLinks) {
+        burgerBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            burgerBtn.classList.toggle("active");
+            navLinks.classList.toggle("active");
+        });
+    }
+
+    // Close burger menu when clicking outside
+    document.addEventListener("click", (e) => {
+        const burgerBtn = document.getElementById("burger-btn");
+        const navLinks = document.querySelector(".nav-links");
+        if (burgerBtn && navLinks && navLinks.classList.contains("active")) {
+            if (!burgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                burgerBtn.classList.remove("active");
+                navLinks.classList.remove("active");
+            }
+        }
     });
 
     // Cart Drawer Toggle
