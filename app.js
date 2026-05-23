@@ -453,6 +453,9 @@ function showAlert(type, message, formPrefix) {
 // 5. VIEW NAVIGATION / ROUTING (SPA)
 // ==========================================
 function showView(viewId) {
+    // Close cart drawer
+    closeCartDrawer();
+
     // Hide all views
     document.querySelectorAll(".view-section").forEach(view => {
         view.classList.remove("active-view");
