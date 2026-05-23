@@ -624,11 +624,45 @@ a {
     color: var(--text-muted);
 }
 
+.menu-tabs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
 .menu-tabs {
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 4px;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    padding: 4px 0;
+    flex: 1;
+}
+.menu-tabs::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+.tabs-arrow-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+.tabs-arrow-btn:hover {
+    background: rgba(181, 131, 76, 0.15);
+    color: var(--accent-gold);
+    border-color: var(--accent-coffee);
 }
 .menu-tab-btn {
     padding: 10px 20px;

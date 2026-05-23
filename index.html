@@ -305,13 +305,20 @@
                     </span>
                     <input type="text" id="search-menu-input" placeholder="Cari Kopi Favorit Anda..." onkeyup="searchMenu(this.value)">
                 </div>
-
-                <div class="menu-tabs">
-                    <button class="menu-tab-btn active-tab" data-category="all" onclick="filterMenuCategory('all', this)">Semua</button>
-                    <button class="menu-tab-btn" data-category="espresso" onclick="filterMenuCategory('espresso', this)">Espresso</button>
-                    <button class="menu-tab-btn" data-category="coldbrew" onclick="filterMenuCategory('coldbrew', this)">Cold Brew</button>
-                    <button class="menu-tab-btn" data-category="noncoffee" onclick="filterMenuCategory('noncoffee', this)">Non-Kopi</button>
-                    <button class="menu-tab-btn" data-category="snacks" onclick="filterMenuCategory('snacks', this)">Cemilan</button>
+                <div class="menu-tabs-wrapper">
+                    <button class="tabs-arrow-btn prev" id="tabs-prev-btn" aria-label="Previous categories" onclick="scrollTabs(-120)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div class="menu-tabs" id="menu-tabs-container">
+                        <button class="menu-tab-btn active-tab" data-category="all" onclick="filterMenuCategory('all', this)">Semua</button>
+                        <button class="menu-tab-btn" data-category="espresso" onclick="filterMenuCategory('espresso', this)">Espresso</button>
+                        <button class="menu-tab-btn" data-category="coldbrew" onclick="filterMenuCategory('coldbrew', this)">Cold Brew</button>
+                        <button class="menu-tab-btn" data-category="noncoffee" onclick="filterMenuCategory('noncoffee', this)">Non-Kopi</button>
+                        <button class="menu-tab-btn" data-category="snacks" onclick="filterMenuCategory('snacks', this)">Cemilan</button>
+                    </div>
+                    <button class="tabs-arrow-btn next" id="tabs-next-btn" aria-label="Next categories" onclick="scrollTabs(120)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
             </div>
 

@@ -1461,3 +1461,10 @@ function applyPromoCode() {
 
     msgEl.innerHTML = `Kupon <strong>${matched.code}</strong> berhasil digunakan! (${benefitText})`;
 }
+
+function scrollTabs(amount) {
+    const container = document.getElementById("menu-tabs-container");
+    if (container) {
+        container.scrollBy({ left: amount, behavior: "smooth" });
+    }
+}
