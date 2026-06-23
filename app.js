@@ -223,7 +223,7 @@ function setupEventHandlers() {
                 showView(target);
                 // Close cart drawer if switching view
                 closeCartDrawer();
-                
+
                 // Close mobile navigation menu
                 const burgerBtn = document.getElementById("burger-btn");
                 const navLinks = document.querySelector(".nav-links");
@@ -898,6 +898,14 @@ function renderCartDrawerItems() {
         if (item.customs.ice !== "Normal") customText += `, Ice: ${item.customs.ice}`;
         if (item.customs.addons.length > 0) customText += `<br>+ ${item.customs.addons.join(", ")}`;
 
+        const qtyControlHTML = item.isFreeReward
+            ? `<span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600; padding: 4px 8px; border: 1px dashed var(--accent-coffee); border-radius: var(--radius-sm);">Gratis Reward</span>`
+            : `<div class="cart-item-qty">
+                <button class="qty-btn" onclick="updateCartQty('${item.sig}', -1)">-</button>
+                <span class="qty-value">${item.qty}</span>
+                <button class="qty-btn" onclick="updateCartQty('${item.sig}', 1)">+</button>
+               </div>`;
+
         itemDiv.innerHTML = `
             <img src="${item.image}" alt="${item.name}" class="cart-item-img">
             <div class="cart-item-details">
@@ -911,12 +919,8 @@ function renderCartDrawerItems() {
                     </button>
                 </div>
                 <div class="cart-item-bottom">
-                    <div class="cart-item-qty">
-                        <button class="qty-btn" onclick="updateCartQty('${item.sig}', -1)">-</button>
-                        <span class="qty-value">${item.qty}</span>
-                        <button class="qty-btn" onclick="updateCartQty('${item.sig}', 1)">+</button>
-                    </div>
-                    <span class="cart-item-price">${formatRupiah(item.totalPrice)}</span>
+                    ${qtyControlHTML}
+                    <span class="cart-item-price">${item.totalPrice === 0 ? "GRATIS" : formatRupiah(item.totalPrice)}</span>
                 </div>
             </div>
         `;
@@ -979,7 +983,7 @@ function renderCheckoutView() {
                 <span class="name">${item.name} <span style="color: var(--accent-gold);">x${item.qty}</span></span>
                 <span class="customs">${customText}</span>
             </div>
-            <span class="price">${formatRupiah(item.totalPrice)}</span>
+            <span class="price">${item.totalPrice === 0 ? "GRATIS" : formatRupiah(item.totalPrice)}</span>
         `;
         list.appendChild(div);
     });
@@ -1470,4 +1474,84 @@ function scrollTabs(amount) {
     if (container) {
         container.scrollBy({ left: amount, behavior: "smooth" });
     }
+}
+
+function redeemLoyaltyReward(rewardId, pointsRequired) {
+    if (!currentUser) {
+        showNavToast("Silakan login terlebih dahulu.");
+        return;
+    }
+
+    if (currentUser.points < pointsRequired) {
+        showNavToast("Poin Loyalitas Anda tidak mencukupi.");
+        return;
+    }
+
+    // Deduct points
+    currentUser.points -= pointsRequired;
+    storage.saveActiveSession(currentUser);
+    
+    // Save to user database
+    const users = storage.getUsers();
+    const index = users.findIndex(u => u.id === currentUser.id);
+    if (index !== -1) {
+        users[index].points = currentUser.points;
+        storage.saveUsers(users);
+    }
+
+    // Update UI counters
+    const dashPoints = document.getElementById("dash-points");
+    if (dashPoints) dashPoints.innerText = currentUser.points;
+
+    // Add free reward item to cart
+    if (rewardId === "latte") {
+        addFreeLoyaltyItemToCart("latte", "Caffè Latte (Reward 50 Poin)");
+        showNavToast("Tukar 50 Poin Sukses! Caffè Latte Gratis masuk keranjang.");
+    } else if (rewardId === "macchiato") {
+        addFreeLoyaltyItemToCart("macchiato", "Caramel Macchiato (Reward 75 Poin)");
+        showNavToast("Tukar 75 Poin Sukses! Caramel Macchiato Gratis masuk keranjang.");
+    } else if (rewardId === "combo") {
+        addFreeLoyaltyItemToCart("coldbrew-sig", "Cold Brew (Reward Combo 100 Poin)");
+        addFreeLoyaltyItemToCart("croissant", "Butter Croissant (Reward Combo 100 Poin)");
+        showNavToast("Tukar 100 Poin Sukses! Paket Combo Gratis masuk keranjang.");
+    }
+}
+
+function addFreeLoyaltyItemToCart(itemId, nameOverride) {
+    const product = MENU_DATA.find(p => p.id === itemId);
+    if (!product) return;
+
+    const freeProduct = {
+        ...product,
+        price: 0,
+        name: nameOverride || `${product.name} (Gratis Poin)`
+    };
+
+    const customizations = {
+        size: "Regular",
+        sweetness: "Normal",
+        ice: "Normal",
+        addons: [],
+        extraCost: 0
+    };
+
+    const itemSig = `free-${itemId}-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`;
+
+    currentCart.push({
+        sig: itemSig,
+        id: freeProduct.id,
+        name: freeProduct.name,
+        image: freeProduct.image,
+        price: 0,
+        extraCost: 0,
+        unitPrice: 0,
+        totalPrice: 0,
+        qty: 1,
+        customs: customizations,
+        isFreeReward: true
+    });
+
+    syncCartWithSession();
+    updateCartBadge();
+    renderCartDrawerItems();
 }

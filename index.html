@@ -277,6 +277,37 @@
                         </div>
                         <span class="points-counter" id="dash-points">0</span>
                     </div>
+
+                    <!-- Loyalty Redemption Rules Section -->
+                    <div class="redemption-section" style="margin-top: 24px; border-top: 1px solid var(--glass-border); padding-top: 20px;">
+                        <h4 style="color: var(--accent-gold); font-size: 1rem; margin-bottom: 12px; font-family: var(--font-heading); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Tukar Poin Kopi Gratis</h4>
+                        <div class="redemption-list" style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- Latte: 50 points -->
+                            <div class="redeem-card glass" style="padding: 12px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(181,131,76,0.15); border-radius: var(--radius-sm);">
+                                <div style="display: flex; flex-direction: column; gap: 2px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Caffè Latte Gratis</span>
+                                    <span style="font-size: 0.8rem; color: var(--accent-gold);">50 Poin</span>
+                                </div>
+                                <button class="btn-primary" onclick="redeemLoyaltyReward('latte', 50)" style="padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius-sm); min-height: unset; box-shadow: none;">Tukar</button>
+                            </div>
+                            <!-- Macchiato: 75 points -->
+                            <div class="redeem-card glass" style="padding: 12px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(181,131,76,0.15); border-radius: var(--radius-sm);">
+                                <div style="display: flex; flex-direction: column; gap: 2px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Caramel Macchiato Gratis</span>
+                                    <span style="font-size: 0.8rem; color: var(--accent-gold);">75 Poin</span>
+                                </div>
+                                <button class="btn-primary" onclick="redeemLoyaltyReward('macchiato', 75)" style="padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius-sm); min-height: unset; box-shadow: none;">Tukar</button>
+                            </div>
+                            <!-- Combo: 100 points -->
+                            <div class="redeem-card glass" style="padding: 12px; display: flex; align-items: center; justify-content: space-between; border-color: rgba(181,131,76,0.15); border-radius: var(--radius-sm);">
+                                <div style="display: flex; flex-direction: column; gap: 2px;">
+                                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Paket Combo Kopi & Cemilan</span>
+                                    <span style="font-size: 0.8rem; color: var(--accent-gold);">100 Poin</span>
+                                </div>
+                                <button class="btn-primary" onclick="redeemLoyaltyReward('combo', 100)" style="padding: 6px 12px; font-size: 0.8rem; border-radius: var(--radius-sm); min-height: unset; box-shadow: none;">Tukar</button>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Footer Home -->
                     <footer class="dashboard-footer glass" style="margin-top: 48px; padding: 24px; text-align: center; border-color: rgba(181,131,76,0.15); width: 100%; grid-column: 1 / -1;">
                         <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 8px;"><strong>Kantor Pusat Cafe Ray</strong></p>
